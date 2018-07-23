@@ -16,7 +16,7 @@ export default class TaskMain extends Component{
         return(
             <Main>
                 <TaskHeader titleTask="To Do"/>
-                <TaskList tareas={this.state.tasks}/>
+                {/* <TaskList tareas={this.state.tasks}/> */}
             </Main>
         )
     }
