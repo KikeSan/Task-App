@@ -9,17 +9,18 @@ export default class TaskMain extends Component{
         this.state = {
             tasks:props.tasks,
             current:props.current,
-            names:props.names,
+            title:props.titulo,
+            colors:props.colors,
         }
         console.log('tareas: ',this.state.tasks);
-        console.log('current: ',this.state.current);
+        console.log('currentMain: ',this.state.current);
         
     }
     render(){
         return(
             <Main>
-                <TaskHeader titleTask={this.state.names[this.state.current]}/>
-                <TaskList tareas={this.props.tasks}/>
+                <TaskHeader titleTask={this.state.title}/>
+                <TaskList tareas={this.state.tasks} colors={this.state.colors}/>
             </Main>
         )
     }

@@ -19,7 +19,7 @@ const Btn = styled.a`
     padding: 8px;
     transition: all 0.5s ease;
     &:hover{
-        background:rgba(0,0,0,.5);
+        background:rgba(255,255,255,.2);
     }
 `;
 const Icon = styled.div.attrs({
