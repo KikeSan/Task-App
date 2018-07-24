@@ -3,26 +3,54 @@ import styled, { css } from 'styled-components'
 import ButtonStatus from "./ButtonStatusTask"
 
 export default class TaskStatus extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            colors:props.colors,
+            nameStatus:props.names,
+            current:props.current
+        }
+        this.setStatus = this.setStatus.bind(this);
+    }
+    setStatus(idStat){
+        console.log('SetStatus: ',idStat);
+        this.setState({ current: idStat })
+        this.props.handleClick(idStat)
+    }
     render(){
         return(
             <Sidebar>
+                <LOGO>LOGO</LOGO>
                 <div>
                     <Input type="text" placeholder="Add new task" />
                     <Button >Add Task</Button>
                 </div>
                 <WrapperButtons>
-                    <ButtonStatus idStatus="1" color="#17a2b8" texto="To do"/>
-                    <ButtonStatus idStatus="2" color="#ffc107" texto="In Progress"/>
-                    <ButtonStatus idStatus="3" color="#28a745" texto="Done"/>
+                    {
+                        this.state.colors.map((color,index)=>(
+                            <ButtonStatus handleClick={this.setStatus} idStatus={index} color={this.state.colors[index]} texto={this.state.nameStatus[index]} key={index}/>
+                        ))
+                    }
                 </WrapperButtons>
             </Sidebar>
         )
     }
 }
 
+const LOGO = styled.div`
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    background: #d20f51;
+    margin: 50px auto;
+    font-size: 11px;
+    line-height: 50px;
+    color:#fff;
+`;
 
 const Sidebar = styled.div`
-  background-color: rgba(255,255,255,.08);
+  background-color: rgba(0,0,0,.2);
   overflow: hidden;
   display: inline-block;
   height: 99vh;

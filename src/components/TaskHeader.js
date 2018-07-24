@@ -7,6 +7,8 @@ export default class TaskHeader extends Component{
         this.state = {
             title:props.titleTask
         }
+        console.log('Title header',this.state.title);
+        
     }
     render(){
         return (

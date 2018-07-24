@@ -2,10 +2,10 @@ import React from 'react';
 import TaskListItem from './TaskListItem';
 
 const TaskList = ({ tareas }) => {
-    return <div>
+    return <ul>
     {
-        tareas.map(tarea => <TaskListItem titulo={tarea.taskTitulo} state={tarea.taskstatus} />)
+        tareas.map((tarea) => <TaskListItem titulo={tarea.taskTitulo} state={tarea.taskstatus} key={tarea.taskId}/>)
     }
-    </div>
+    </ul>
 }
 export default TaskList

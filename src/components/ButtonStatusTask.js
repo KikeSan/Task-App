@@ -1,8 +1,8 @@
 import React from 'React';
 import styled from 'styled-components';
 
-const ButtonStatusTask = ({color, texto, idStatus}) => (
-    <Btn onClick={() => selectStatus(idStatus)}>
+const ButtonStatusTask = ({handleClick, color, texto, idStatus}) => (
+    <Btn onClick={() => handleClick(idStatus)}>
         <Icon color={color}/>
         <Text>{texto}</Text>
     </Btn>
@@ -15,15 +15,22 @@ const Btn = styled.a`
     width: 80%;
     margin: 15px 10%;
     text-align:left;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.5s ease;
+    &:hover{
+        background:rgba(0,0,0,.5);
+    }
 `;
 const Icon = styled.div.attrs({
     background: props => props.color || '#ffc107'
 })`
     display: inline-block;
-    height:24px;
-    width:24px;
+    height:20px;
+    width:20px;
     border-radius: 50%;
-    background: ${props => props.color}
+    background: ${props => props.color};
+    box-shadow: 0px 0px 20px ${props => props.color};
 `;
 
 const Text = styled.div`
@@ -31,4 +38,5 @@ const Text = styled.div`
     display:inline-block;
     position: absolute;
     margin-left: 15px;
+    line-height: 20px;
 `;

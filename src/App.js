@@ -15,6 +15,6 @@ export default class App extends Component {
 }
 
 const Wrapper = styled.div`
-  background-color: #00002b;
+  background-color: #1d0d3e;
   height: 100vh;
 `
