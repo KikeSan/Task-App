@@ -4,16 +4,12 @@ import styled from 'styled-components';
 export default class TaskHeader extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            title:props.titleTask
-        }
-        console.log('Title header',this.state.title);
         
     }
     render(){
         return (
             <div>
-                <TitleTask>{this.state.title}</TitleTask>
+                <TitleTask>{this.props.titleTask}</TitleTask>
                 <Input type="text" placeholder="Search Task" />
             </div>
         );

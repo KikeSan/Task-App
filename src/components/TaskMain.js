@@ -6,21 +6,26 @@ import TaskList from './TaskList';
 export default class TaskMain extends Component{
     constructor(props){
         super(props);
-        this.state = {
+        /* this.state = {
             tasks:props.tasks,
             current:props.current,
             title:props.titulo,
             colors:props.colors,
-        }
-        console.log('tareas: ',this.state.tasks);
-        console.log('currentMain: ',this.state.current);
+        } */
+        this.paseModal = this.paseModal.bind(this)
+        console.log('tareas: ',props.tasks);
+        console.log('currentMain: ',props.current);
         
+    }
+    paseModal(id){
+        this.props.onClick(id);
+        console.log('paseModal',id)
     }
     render(){
         return(
             <Main>
-                <TaskHeader titleTask={this.state.title}/>
-                <TaskList tareas={this.state.tasks} colors={this.state.colors}/>
+                <TaskHeader titleTask={this.props.titulo}/>
+                <TaskList tareas={this.props.tasks} colors={this.props.colors} onClick={this.paseModal}/>
             </Main>
         )
     }
