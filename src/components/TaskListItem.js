@@ -26,14 +26,14 @@ export default class TaskListItem extends Component{
     render(){
         return(
             <Item key={this.state.idtask} color={this.state.colors[this.state.status]}>
-            {console.log('status:::',this.state.status)}
             <ULtag>
                 <LItagLavel key="0">Change Status: </LItagLavel>
                 <Select id="great-names" onChange={this.setStatusItem}>
-                    <option value="0"> Select</option>
-                    <option value="0"> To do</option>
-                    <option value="1"> In progress</option>
-                    <option value="2"> Done! </option>
+                {
+                    this.props.nombres.map((name,i)=>{
+                        return this.props.state===i?<option value={i} key={i} selected>{name}</option>:<option value={i} key={i}>{name}</option>
+                    })
+                }
                 </Select>
             </ULtag>
             <Title onClick={this.openModal}>{this.state.name}</Title>
@@ -84,7 +84,7 @@ const LItag = styled.div`
 `;
 const LItagLavel = LItag.extend`
     color: #fff;
-    right: 85px;
+    right: 95px;
     font-size: 10px;
     position: absolute;
     width: 80px;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styled, { css } from 'styled-components'
 import ButtonStatus from "./ButtonStatusTask"
+import '../App.css'
 
 export default class TaskStatus extends Component{
     constructor(props){
@@ -11,20 +12,33 @@ export default class TaskStatus extends Component{
             current:props.current
         }
         this.setStatus = this.setStatus.bind(this);
+        this.addTaskEvent = this.addTaskEvent.bind(this);
     }
     setStatus(idStat){
         console.log('SetStatus: ',idStat);
         this.setState({ current: idStat })
         this.props.handleClick(idStat)
     }
+    addTaskEvent = e => {
+        e.preventDefault();
+        console.log(this.newTask.value,Date.now());
+        const nTask ={
+            "taskId":Date.now(),
+            "taskTitulo":this.newTask.value,
+            "taskstatus":0
+        }
+        this.props.onAddTask(nTask);
+        this.newTask.value = '';
+    }
     render(){
         return(
             <Sidebar>
                 <LOGO>LOGO</LOGO>
-                <div>
-                    <Input type="text" placeholder="Add new task" />
-                    <Button >Add Task</Button>
-                </div>
+                <form onSubmit={this.addTaskEvent}>
+                    <input type="text" placeholder="Add new task" ref={node => this.newTask = node} style={inputAdd}/>
+                    <Button type="submit">Add Task</Button>
+                </form>
+                <ViewAll onClick={this.props.toggleAllTask}>[ View all tasks ]</ViewAll>
                 <WrapperButtons>
                     {
                         this.state.colors.map((color,index)=>(
@@ -35,6 +49,19 @@ export default class TaskStatus extends Component{
             </Sidebar>
         )
     }
+}
+const inputAdd = {
+    border: '1px solid #a9a9ef',
+    margin: '15px auto',
+    padding: '.375rem .75rem',
+    fontSize: '1rem',
+    lineHeight: 1.5,
+    color: '#495057',
+    backgroundColor: '#fff',
+    backgroundClip: 'padding-box',
+    border: '1px solid #a9a9ef',
+    borderRadius: '.25rem',
+    transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
 }
 
 const LOGO = styled.div`
@@ -48,6 +75,12 @@ const LOGO = styled.div`
     line-height: 50px;
     color:#fff;
 `;
+const ViewAll = styled.a`
+    display:block;
+    cursor:pointer;
+    color:#fff!important;
+    margin: 30px 0 0;
+`
 
 const Sidebar = styled.div`
   background-color: rgba(0,0,0,.2);
@@ -57,19 +90,7 @@ const Sidebar = styled.div`
   width: 20%;
   text-align: center;
 ` 
-const Input = styled.input`
-  border: 1px solid #a9a9ef;
-  margin: 15px auto;
-  padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #a9a9ef;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-`;
+
 const Button = styled.button`
     display: block;
     font-weight: 400;
@@ -87,5 +108,5 @@ const Button = styled.button`
 `;
 
 const WrapperButtons = styled.div`
-    margin: 45px 0;
+    margin: 0;
 `;

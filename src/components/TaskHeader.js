@@ -4,13 +4,17 @@ import styled from 'styled-components';
 export default class TaskHeader extends Component{
     constructor(props){
         super(props);
-        
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(term){
+        console.log('TaskHeader',term);
+        this.props.onChange(term);
     }
     render(){
         return (
             <div>
                 <TitleTask>{this.props.titleTask}</TitleTask>
-                <Input type="text" placeholder="Search Task" />
+                <Input type="text" placeholder="Search Task" onChange={e => this.handleChange(e.target.value)}/>
             </div>
         );
     }

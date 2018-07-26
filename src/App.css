@@ -40,3 +40,17 @@ h1 {
   composes: button;
   background-color: #2980b9;
 }
+
+.inputAdd{
+  border: 1px solid #a9a9ef;
+    margin: 15px auto;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #a9a9ef;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
