@@ -1,5 +1,13 @@
-# React quickstart
-For basic React application
+<p align="center">
+	<a href="http://kike.pe" target="_blank">
+        <img src="https://github.com/KikeSan/ToDoApp/blob/master/img/logoBlue.svg" alt="kike.pe" width="100"/>
+    </a>
+	<br><br>
+</p>
+
+# Task App
+
+Exercice for the React course
 Just run:
 ```console
 npm install
