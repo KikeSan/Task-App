@@ -48,5 +48,5 @@ const Main = styled.div`
   overflow: hidden;
   display: inline-block;
   height: 99vh;
-  width:79%;
+  width:78%;
 `
