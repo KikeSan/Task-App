@@ -15,7 +15,8 @@ export default class TaskManager extends Component{
                 { "taskId":3, "taskTitulo":"Tarea demo 3", "taskstatus":0 },
                 { "taskId":4, "taskTitulo":"Tarea demo 4", "taskstatus":2 },
                 { "taskId":5, "taskTitulo":"Tarea demo 5", "taskstatus":0 },
-                { "taskId":6, "taskTitulo":"Tarea demo 6", "taskstatus":1 }
+                { "taskId":6, "taskTitulo":"Tarea demo 6", "taskstatus":1 },
+                { "taskId":7, "taskTitulo":"Tarea demo 7", "taskstatus":2 }
             ],
             currentTasks:0,
             colors:['#03a9f4','#ffc107','#3dd843'],
