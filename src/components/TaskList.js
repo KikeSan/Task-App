@@ -5,7 +5,7 @@ export default class TaskList extends Component{
     constructor(props){
         super(props);
         this.jumpModal = this.jumpModal.bind(this);
-        console.log('TaskList::::',props)
+        console.log('TaskList::',props)
     }
     jumpModal(index){
         console.log('jumpModal',index);
