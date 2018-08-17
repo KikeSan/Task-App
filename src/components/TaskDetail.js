@@ -14,7 +14,7 @@ export default class TaskDetail extends Component{
             <Modal visible={this.props.visible}>
                 <Detail color={this.props.colores[this.props.detalle.taskstatus]}>
                     <TitleTask color={this.props.colores[this.props.detalle.taskstatus]}>{this.props.detalle.taskTitulo}</TitleTask>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam tempore fuga quas dolore ut saepe cupiditate deserunt quo recusandae harum ab, error facere hic sint mollitia obcaecati sit blanditiis reprehenderit. Animi illum exercitationem dolores aut! Veniam vel nulla totam, quidem mollitia temporibus expedita natus magni, ad impedit a. Corrupti, quo.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam tempore fuga quas dolore ut saepe cupiditate deserunt quo recusandae harum ab, error facere hic sint mollitia obcaecati sit blanditiis reprehenderit. Animi illum exercitationem dolores aut! Veniam vel nulla totam, quidem mollitia temporibus expedita natus magni.</p>
                     <Cerrar onClick={this.props.onClick}>Cerrar</Cerrar>
                 </Detail>
             </Modal>
